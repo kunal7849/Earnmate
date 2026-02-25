@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome | EarnMate</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1f4037, #99f2c8);
+      overflow:hidden;
+    }
+
+    /* Floating blobs background */
+    .blob{
+      position:absolute;
+      width:200px;
+      height:200px;
+      background: rgba(255,255,255,0.15);
+      border-radius:50%;
+      filter: blur(20px);
+      animation: float 18s ease-in-out infinite alternate;
+    }
+    .b1{ top:10%; left:5%; animation-duration:22s; }
+    .b2{ bottom:10%; right:5%; animation-duration:26s; }
+    .b3{ top:50%; left:60%; animation-duration:20s; }
+
+    @keyframes float{
+      from{ transform: translateY(0) translateX(0); }
+      to{ transform: translateY(-40px) translateX(30px); }
+    }
+
+    .wrap{
+      position:relative;
+      z-index:5;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      border-radius:26px;
+      width:320px;
+      padding:26px 22px 28px;
+      text-align:center;
+      box-shadow:0 12px 30px rgba(0,0,0,.25);
+      animation: pop .9s ease;
+    }
+
+    @keyframes pop{
+      from{ opacity:0; transform: scale(.92) translateY(20px); }
+      to{ opacity:1; transform: scale(1) translateY(0); }
+    }
+
+    .title{
+      font-family: 'Montserrat', sans-serif;
+      font-weight:800;
+      font-size:22px;
+      margin-bottom:6px;
+      color:#0f3d2e;
+      letter-spacing:.5px;
+    }
+
+    .subtitle{
+      font-size:13px;
+      color:#2f6b55;
+      margin-bottom:18px;
+    }
+
+    .google-btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      width:100%;
+      padding:12px 14px;
+      border-radius:22px;
+      border:none;
+      background:#ffffff;
+      box-shadow:0 6px 16px rgba(0,0,0,.18);
+      font-weight:600;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .google-btn:active{
+      transform: scale(.97);
+    }
+
+    .google-icon{
+      width:20px;
+      height:20px;
+    }
+
+    .hint{
+      margin-top:14px;
+      font-size:12px;
+      color:#444;
+      opacity:.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background blobs -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="title">Welcome to EarnMate</div>
+      <div class="subtitle">Sign up with your Google account to continue</div>
+
+      <button class="google-btn" id="googleLoginBtn">
+        <img class="google-icon" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" />
+        Continue with Google
+      </button>
+
+      <div class="hint">Safe & secure Google sign-in</div>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyC5PKqf5Q95vpo6uCPEGW200rFCHdalOOQ",
+  authDomain: "earnmate-456.firebaseapp.com",
+  projectId: "earnmate-456",
+  storageBucket: "earnmate-456.firebasestorage.app",
+  messagingSenderId: "1031173669063",
+  appId: "1:1031173669063:web:68dc00db74446a44a5bee2"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    document.getElementById("googleLoginBtn").addEventListener("click", async () => {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+
+        // Login successful → 3rd page par redirect
+        window.location.href = "page3.html"; 
+      } catch (error) {
+        alert("Login failed: " + error.message);
+      }
+    });
+  </script>
+
+</body>
+</html>

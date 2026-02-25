@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EarnMate</title>
+
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      overflow:hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #c9e9ff, #ffffff);
+    }
+
+    /* Soft animated clouds (Ghibli vibe) */
+    .cloud{
+      position:absolute;
+      background: #ffffffcc;
+      border-radius:50px;
+      filter: blur(2px);
+      opacity:0.9;
+      animation: moveCloud 40s linear infinite;
+    }
+    .cloud:before, .cloud:after{
+      content:"";
+      position:absolute;
+      background:#ffffffcc;
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      top:-20px;
+      left:20px;
+    }
+    .cloud:after{
+      width:80px;
+      height:80px;
+      top:-30px;
+      left:60px;
+    }
+
+    .c1{ width:160px; height:60px; top:20%; left:-200px; animation-duration: 45s; }
+    .c2{ width:220px; height:70px; top:40%; left:-300px; animation-duration: 60s; opacity:0.8; }
+    .c3{ width:140px; height:55px; top:60%; left:-180px; animation-duration: 35s; opacity:0.7; }
+
+    @keyframes moveCloud{
+      from{ transform: translateX(0); }
+      to{ transform: translateX(140vw); }
+    }
+
+    .card{
+      position:relative;
+      z-index:5;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .box{
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(6px);
+      padding:28px 26px 30px;
+      border-radius:26px;
+      width:300px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,.15);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{ opacity:0; transform: translateY(20px) scale(.95); }
+      to{ opacity:1; transform: translateY(0) scale(1); }
+    }
+
+    /* EM logo style (not black box) */
+    .logo{
+      width:90px;
+      height:90px;
+      margin:0 auto 12px;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #ffda79, #ff9f1c);
+      color:#4b2e00;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:34px;
+      font-weight:800;
+      letter-spacing:1px;
+      box-shadow:0 6px 14px rgba(0,0,0,.2);
+    }
+
+    h2{ margin:6px 0 6px; color:#333; }
+    p{ margin:0 0 16px; color:#555; font-size:14px; }
+
+    button{
+      margin-top:10px;
+      padding:12px 26px;
+      border:none;
+      border-radius:26px;
+      background: linear-gradient(135deg, #ff9f1c, #ffbf69);
+      color:#4b2e00;
+      font-size:15px;
+      font-weight:600;
+      box-shadow:0 6px 14px rgba(0,0,0,.2);
+    }
+
+    button:active{
+      transform: scale(.96);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Animated clouds -->
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+
+  <div class="card">
+    <div class="box">
+      <div class="logo">EM</div>
+      <h2>EarnMate</h2>
+      <p>Fun tasks. Real rewards.</p>
+      <button onclick="goNext()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    function goNext(){
+      // Abhi ke liye next page ka naam yahan change kar sakta hai
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>

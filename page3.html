@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EarnMate – Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+    body{
+      min-height:100vh;
+      background: linear-gradient(135deg,#f7f9ff,#fff4d9,#e8f2ff);
+      padding:18px;
+    }
+
+    .header{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:18px;
+    }
+    .profile{
+      width:62px;height:62px;border-radius:50%;
+      background:linear-gradient(135deg,#ffd36e,#ff8c00);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:800;font-size:22px;
+      box-shadow:0 10px 22px rgba(0,0,0,.2);
+    }
+    .user-info{
+      flex:1;
+    }
+    .user-info h3{font-size:20px;font-weight:800;}
+    .user-info p{font-size:14px;color:#555;}
+
+    .stats{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .chip{
+      padding:8px 14px;border-radius:24px;
+      background:#fff;box-shadow:0 6px 16px rgba(0,0,0,.12);
+      font-size:14px;font-weight:700;
+      display:flex;align-items:center;gap:6px;
+    }
+
+    .card{
+      background:#fff;
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 12px 28px rgba(0,0,0,.15);
+      margin-bottom:18px;
+    }
+    .coins-title{
+      font-size:20px;font-weight:800;margin-bottom:6px;
+    }
+    .coins{
+      font-size:36px;font-weight:900;color:#ff8c00;
+      margin-bottom:12px;
+    }
+    .withdraw{
+      display:flex;align-items:center;gap:10px;
+      background:linear-gradient(135deg,#ff8c00,#ffb703);
+      color:#fff;
+      padding:12px 18px;border-radius:12px;
+      width:fit-content;
+      font-weight:700;
+      font-size:15px;
+      box-shadow:0 8px 18px rgba(255,140,0,.45);
+    }
+
+    .earn-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .earn-box{
+      background:#fff;
+      border-radius:20px;
+      padding:18px;
+      box-shadow:0 12px 28px rgba(0,0,0,.15);
+      min-height:170px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+    .earn-icon{
+      width:64px;height:64px;border-radius:16px;
+      background:linear-gradient(135deg,#5ddcff,#3c67e3,#4e00c2);
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:30px;margin-bottom:12px;
+      box-shadow:0 10px 22px rgba(0,0,0,.25);
+    }
+    .earn-title{font-weight:800;font-size:16px;}
+    .earn-sub{font-size:12px;color:#666;margin-top:6px;line-height:1.4;}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="profile">EM</div>
+    <div class="user-info">
+      <h3>Hi, User Name</h3>
+      <p>Welcome to EarnMate</p>
+    </div>
+    <div class="stats">
+       <div class="chip">⭐ Star:  0</div>
+      <div class="chip">🔥 Streak: 0</div>
+    </div>  </div>
+  </div>
+
+  <!-- Coins Box -->
+  <div class="card">
+    <div class="coins-title">Available Coins</div>
+    <div class="coins">0</div>
+    <div class="withdraw">💸 Withdraw</div>
+  </div>
+
+  <!-- Earn Section -->
+  <div class="earn-grid">
+
+    <div class="earn-box">
+      <div class="earn-icon">🎮</div>
+      <div class="earn-title">Play Game</div>
+      <div class="earn-sub">Play & earn stars</div>
+    </div>
+
+    <div class="earn-box">
+      <div class="earn-icon">🧩</div>
+      <div class="earn-title">Fill Captcha</div>
+      <div class="earn-sub">New captcha every time</div>
+    </div>
+
+    <div class="earn-box">
+      <div class="earn-icon">🎁</div>
+      <div class="earn-title">Star Offer </div>
+      <div class="earn-sub">
+        Unlock offers       </div>
+    </div>
+
+    <div class="earn-box">
+      <div class="earn-icon">📺</div>
+      <div class="earn-title">Watch Ads</div>
+      <div class="earn-sub">
+        Watch full ads to earn coins.  
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
